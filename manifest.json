@@ -5,8 +5,8 @@
   "version": "1.0.0",
   "author": "kaktyc",
   "license": "MIT",
-  "repository": "https://github.com/kaktyc/wallpaper-drop",
-  "homepage": "https://github.com/kaktyc/wallpaper-drop",
+  "repository": "https://github.com/kaktycgmd/wallpaper-drop",
+  "homepage": "https://github.com/kaktycgmd/wallpaper-drop",
   "description": "Drop wallpapers from your file manager into a dedicated folder, preview them in a grid (GIFs and videos animate), and apply with Omarchy's smooth wallpaper transition.",
   "kinds": [
     "bar-widget",
