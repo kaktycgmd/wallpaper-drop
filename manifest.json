@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "kaktyc.wallpaper-drop",
+  "name": "Wallpaper Drop",
+  "version": "1.0.0",
+  "author": "kaktyc",
+  "license": "MIT",
+  "repository": "https://github.com/kaktyc/wallpaper-drop",
+  "homepage": "https://github.com/kaktyc/wallpaper-drop",
+  "description": "Drop wallpapers from your file manager into a dedicated folder, preview them in a grid (GIFs and videos animate), and apply with Omarchy's smooth wallpaper transition.",
+  "kinds": [
+    "bar-widget",
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "barWidget": "BarWidget.qml",
+    "overlay": "DropOverlay.qml"
+  },
+  "barWidget": {
+    "displayName": "Wallpaper Drop",
+    "description": "Open the drop-folder wallpaper picker",
+    "category": "Appearance",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
