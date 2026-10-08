@@ -42,4 +42,4 @@ Omarchy Quattro with the Quickshell-based shell (ships with current Omarchy).
 
 ## License
 
-[MIT](LICENSE)
+[GPL-3.0-or-later](LICENSE)
