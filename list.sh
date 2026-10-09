@@ -3,12 +3,18 @@
 # list.sh <drop-dir> — one "path<TAB>thumb<TAB>kind" row per wallpaper,
 # newest first. kind is image | gif | video. Thumbnails live in
 # ~/.cache/omarchy/wallpaper-drop keyed by path + size + mtime.
+#
+# Thumbnails may show private screenshots pasted from the clipboard, so keep
+# the cache owner-only: umask 077 for new files and 0700 on the directory.
+
+umask 077
 
 dir=${1:-}
 [[ -n $dir && -d $dir ]] || exit 0
 
 cache=${XDG_CACHE_HOME:-$HOME/.cache}/omarchy/wallpaper-drop
 mkdir -p "$cache"
+chmod 700 "$cache" 2>/dev/null || true
 
 kind_of() {
   local name=${1,,}
