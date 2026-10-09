@@ -28,6 +28,8 @@ omarchy plugin remove kaktyc.wallpaper-drop
 
 Removal uninstalls the plugin code only. Wallpapers already imported into the drop folder, the applied background, and the generated `wallpaper-drop-auto` theme are left untouched.
 
+The plugin also creates a color theme named `wallpaper-drop-auto` in `~/.config/omarchy/themes/`. Do not reuse that name for a theme of your own — each apply overwrites its `colors.toml` (the theme is left in place when the plugin is removed).
+
 ## Optional dependencies
 
 | Dependency | Used for |
@@ -35,6 +37,10 @@ Removal uninstalls the plugin code only. Wallpapers already imported into the dr
 | `aether` | Color theme extraction (dark, from the wallpaper). Falls back to the built-in extractor. |
 | `nosignal.motion-wallpaper` or `tenzin.live-wallpaper` | Playing video wallpapers. |
 | `ffmpeg` | Extracting the theme frame from a video. |
+| `ffmpegthumbnailer` | Video thumbnails in the picker grid. |
+| `python3` + Pillow (`PIL`) | Built-in palette extractor, used when `aether` is unavailable. |
+| `wl-clipboard` (`wl-paste`) | Pasting a copied image with Ctrl+V. |
+| `xdg-open` | Right-clicking the bar button to open the drop folder. |
 
 ## Requirements
 

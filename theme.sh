@@ -16,6 +16,10 @@
 
 set -euo pipefail
 
+# Extracted video frames can show private wallpapers, so keep the cache
+# owner-only: umask 077 for new files and 0700 on the directory.
+umask 077
+
 src=${1:-}
 [[ -n $src && -f $src ]] || { echo "usage: theme.sh <image-or-video>" >&2; exit 1; }
 src=$(realpath -- "$src")
@@ -25,6 +29,7 @@ theme_name="wallpaper-drop-auto"
 theme_dir="$HOME/.config/omarchy/themes/$theme_name"
 mkdir -p "$theme_dir"
 mkdir -p "$HOME/.cache/omarchy/wallpaper-drop"
+chmod 700 "$HOME/.cache/omarchy/wallpaper-drop" 2>/dev/null || true
 
 case ${src,,} in
   *.mp4|*.mkv|*.webm|*.mov|*.m4v|*.avi|*.mpeg|*.mpg)
