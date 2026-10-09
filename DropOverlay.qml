@@ -283,9 +283,7 @@ Item {
     onExited: function(exitCode) {
       root.applying = false
       if (exitCode === 0) {
-        root.statusText = ""
-        if (root.shell) root.shell.hide(root.pluginId)
-        else root.close()
+        root.statusText = "Applied"
       } else if (exitCode === 2) {
         root.statusText = "No video wallpaper backend available"
       } else {
