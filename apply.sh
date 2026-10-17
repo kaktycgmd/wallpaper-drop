@@ -26,10 +26,8 @@ plugin_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 pidfile="$HOME/.local/state/omarchy/wallpaper-drop-mpv.pid"
 
 kill_mpv() {
-  if [[ -f $pidfile ]]; then
-    kill "$(cat "$pidfile")" 2>/dev/null || true
-    rm -f "$pidfile"
-  fi
+  pkill -f "mpv --vo=wlshm" 2>/dev/null || true
+  rm -f "$pidfile"
 }
 
 case ${path,,} in
@@ -37,10 +35,10 @@ case ${path,,} in
     # Stop any previously running video, then play the new clip live via mpv
     # on the Wayland desktop. mpv loops, muted, no decorations.
     kill_mpv
-    mpv --wayland --fullscreen --loop-file=inf --no-osc --no-border \
-        --mute=yes --screen=0 "$path" &
+    setsid mpv --vo=wlshm --fullscreen --loop-file=inf --no-osc --no-border \
+        --force-window=immediate --mute=yes --screen=0 "$path" \
+        >/dev/null 2>&1 &
     echo $! > "$pidfile"
-    disown
     # Theme colors come from a frame; that frame is also the static
     # background under the video.
     frame=$("$plugin_dir/theme.sh" "$path" 2>/dev/null || true)
