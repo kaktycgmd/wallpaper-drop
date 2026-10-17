@@ -10,12 +10,14 @@
   "description": "Drop wallpapers from your file manager into a dedicated folder, preview them in a grid (GIFs and videos animate), and apply with Omarchy's smooth wallpaper transition.",
   "kinds": [
     "bar-widget",
-    "overlay"
+    "overlay",
+    "service"
   ],
   "keepLoaded": true,
   "entryPoints": {
     "barWidget": "BarWidget.qml",
-    "overlay": "DropOverlay.qml"
+    "overlay": "DropOverlay.qml",
+    "service": "Service.qml"
   },
   "barWidget": {
     "displayName": "Wallpaper Drop",

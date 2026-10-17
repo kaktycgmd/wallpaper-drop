@@ -6,7 +6,7 @@ A drop-folder wallpaper picker for [Omarchy](https://omarchy.org/). Drag images,
 
 - **Drag & drop import** — drop files from any file manager onto the panel; they are copied into `~/.config/omarchy/backgrounds/wallpaper-drop/`.
 - **Animated previews** — GIFs animate, videos play right in the grid.
-- **One-key apply** — `Enter` applies the selection; images and GIFs go through Omarchy's wallpaper transition, videos pin into Motion Wallpaper (or Live Wallpaper as fallback).
+- **One-key apply** — `Enter` applies the selection; images and GIFs go through Omarchy's wallpaper transition, videos play live through the plugin's own video layer (no Motion Wallpaper or Live Wallpaper needed), otherwise they apply as a still frame.
 - **Auto color theme** — every apply derives a theme from the wallpaper using [Aether](https://github.com/omacom/aether)'s color extractor (`aether --generate --no-apply`, dark by default) and activates it as the `wallpaper-drop-auto` theme. If `aether` is not installed, a built-in palette extractor is used instead. The background is applied before the theme so the link never dangles.
 - **Delete** — `Del` or right-click a tile to remove the file (protected from deleting your current background).
 - **Compact, non-blocking panel** — opens next to the bar, closes with `×` or `Esc`, never closes on outside clicks, and does not steal keyboard focus from the rest of your desktop.
@@ -35,7 +35,7 @@ The plugin also creates a color theme named `wallpaper-drop-auto` in `~/.config/
 | Dependency | Used for |
 |---|---|
 | `aether` | Color theme extraction (dark, from the wallpaper). Falls back to the built-in extractor. |
-| `nosignal.motion-wallpaper` or `tenzin.live-wallpaper` | Playing video wallpapers. |
+| `qt6-multimedia` | Video decoding for the plugin's own live video layer. Videos still apply as a still frame without it. |
 | `ffmpeg` | Extracting the theme frame from a video. |
 | `ffmpegthumbnailer` | Video thumbnails in the picker grid. |
 | `python3` + Pillow (`PIL`) | Built-in palette extractor, used when `aether` is unavailable. |
